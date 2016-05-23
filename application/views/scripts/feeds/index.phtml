@@ -1,5 +1,5 @@
 
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -26,21 +26,31 @@
     </div>
   </div>
 </nav>
-<div>
+
 <?php
-	
-	foreach ($this->paths as $channel) {
-		# code..
-		echo "<pre>";
-		echo $channel->title;
-		// echo $path->link();
-		// echo $path->pubDate();
-		echo "<pre>";
 
-	
-   }
+  
+  echo "<h3 style= 'color:blue'><b> ".$this->paths->title()."  </b></h3>";
+  
+    echo "<br>";
+    echo "<h5><b> ".$this->paths->description()."  </b></h5>";
+    echo "<br>";
+    
+    foreach ($this->paths as $channel) 
+    {
+        
+        echo "<div style='background-color:#d3d3d3 '>";
+        echo "<div style='margin-left:30px'>";
+        echo "<a style='font-size:20px' href='".$channel->link()."'> ".$channel->title()."</a>" . "\n";
+        echo "</br>";
+        echo "<b> Date:</b>";
+      echo $channel->pubDate() . "\n";
+        echo "</div>";
+        echo "<hr>";
+        echo "</div>";
 
 
 
+    }
 ?>
 </div>
